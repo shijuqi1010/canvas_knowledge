@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<head>
+  <style>
+    .canvas{
+      /* width: 200px;
+      height: 200px; */
+      border: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="400px" height="300px" id="mycanvas" class="canvas">您的浏览器不支持 HTML5 canvas 标签。</canvas>
+  <!-- <img id="demo" src="https://upload-images.jianshu.io/upload_images/4041074-9a28413f8e1eac24.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp" alt="demo" width="300" height="200"> -->
+</body>
+<script>
+  window.onload = function() {
+    // var canvas = document.getElementById("mycanvas")
+    // var oCanvas = canvas.getContext("2d")
+    // canvas.width = document.body.clientWidth;
+    // canvas.height = canvas.width;
+    // var devicePixelRatio = window.devicePixelRatio || 1;
+    // var backingStoreRatio = oCanvas.webkitBackingStorePixelRatio ||
+    //   oCanvas.mozBackingStorePixelRatio ||
+    //   oCanvas.msBackingStorePixelRatio ||
+    //   oCanvas.oBackingStorePixelRatio ||
+    //   oCanvas.backingStorePixelRatio || 1;
+    // var ratio = devicePixelRatio / backingStoreRatio;
+    // canvas.style.width=canvas.width+"px";
+    // canvas.style.height = canvas.height+"px";
+    // canvas.width = canvas.width * ratio;
+    // canvas.height = canvas.height * ratio;
+
+
+    // oCanvas.scale(ratio, ratio);
+    // oCanvas.translate(0.5, 0.5);
+    // // oCanvas.lineWidth = 4;
+    // // oCanvas.moveTo(2.5, 2);
+    // // oCanvas.lineTo(98.5, 2);
+    // // oCanvas.lineTo(98.5, 98);
+    // // oCanvas.lineTo(2.5, 98);
+    // // oCanvas.lineTo(2.5, 2);
+    // // oCanvas.stroke();
+
+    // // oCanvas.fillStyle = "#FF00FF"
+    // // oCanvas.fillRect(0,0,150,75);
+    // // 直线
+    // // oCanvas.moveTo(0, 0)
+    // // oCanvas.lineTo(100, 200)
+    // // oCanvas.stroke()
+
+    // // 矩形
+    // // oCanvas.lineWidth="6";
+    // // oCanvas.fillStyle = "#FF00FF"
+    // // oCanvas.fillRect(0, 70, 60, 23)
+
+    // // oCanvas.rect(2, 4, 100, 100)
+    // // oCanvas.stroke()
+    // // 圆
+    // // oCanvas.beginPath();
+    // // oCanvas.arc(150, 100, 30, 1*Math.PI, 2*Math.PI)
+    // // oCanvas.closePath();
+    // // oCanvas.stroke();
+    // // 文本
+    // // oCanvas.font = 'bold 45px Arial';
+    // // oCanvas.textAlign = 'center';
+    // // oCanvas.textBaseline = 'bottom';
+    // // oCanvas.fillStyle = '#ccc';
+    // // oCanvas.fillText("文本", 40, 60, 100);
+    // // oCanvas.strokeText("text", 40, 120)
+
+    // // 渐变
+    // // var grd = oCanvas.createLinearGradient(0, 0, 200, 0);
+    // // grd.addColorStop(0, "blue");
+    // // grd.addColorStop(1, "red"); 
+    // // oCanvas.fillStyle = grd
+    // // oCanvas.fillText("文本", 40, 60, 100);
+    
+    // // 图像
+    // // 获得一个指向HTMLImageElement的对象或者另一个canvas元素的引用作为源,也可以通过提供一个URL的方式来使用图片
+    // // 使用drawImage()函数将图片绘制到画布上
+    // // var img=document.getElementById("demo");
+    // // oCanvas.drawImage(img,10,10);
+    // // oCanvas.drawImage(img,200,200);
+
+    // var img = new Image()
+    // img.setAttribute("crossOrigin", "anonymous")
+    // img.src = 'https://upload-images.jianshu.io/upload_images/4041074-9a28413f8e1eac24.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp'
+    // // 图片加载完成，才可处理
+    // img.onload = () => {
+    //   // 画图(这里画布与图片等宽高)
+    //   oCanvas.drawImage(img, 0, 0)
+    //   // 设置字体大小
+    //   oCanvas.font = "28px Microsoft YaHei"
+    //   // 更改字号后，必须重置对齐方式，否则居中麻烦。设置文本的垂直对齐方式
+    //   oCanvas.textBaseline = 'middle'
+    //   oCanvas.textAlign = 'center'
+    //   // 距离左边的位置
+    //   var left = canvas.width / 2
+    //   // 距离上边的位置 (图片高-文字距离图片底部的距离)
+    //   var top = canvas.height - 328
+    //   // 文字颜色
+    //   oCanvas.fillStyle = "#000"
+    //   // 文字在画布的位置
+    //   oCanvas.fillText("哈哈哈", left, top)
+    //   // img.src = canvas.toDataURL("image/jpg")
+    //   // this.flag = 1
+    // }
+    // const canvas = document.getElementById('mycanvas');
+    // /* 获得 2d 上下文对象 */
+    // const ctx = canvas.getContext('2d');
+
+    // let radialGradient;
+    // let distance = -50;
+    // const speed = 5;
+
+    // const draw = (axisX) => {
+    //     /* 清空画布(或部分清空) */
+    //     ctx.clearRect(0, 0, 600, 600);
+    //     radialGradient = ctx.createRadialGradient(distance, 300, 10, distance, 300, 50);
+    //     radialGradient.addColorStop(0, "#FFFFFF");
+    //     radialGradient.addColorStop(1, "#EA7F26");
+    //     ctx.fillStyle = radialGradient;
+
+    //     ctx.beginPath();
+    //     ctx.moveTo(distance, 300);
+    //     ctx.arc(distance, 300, 50, 0, 2 * Math.PI, false);
+    //     ctx.fill();
+        
+    //     distance = distance + speed;
+        
+    //     if (distance > 650) distance = -50;
+
+    //     requestAnimationFrame(draw);
+    // }
+
+    // requestAnimationFrame(draw);ctx.clearRect(0, 0, 600, 600);
+
+    // ctx.beginPath();
+    // ctx.moveTo(distance, 300);
+    // ctx.arc(distance, 300, 50, 0, 2 * Math.PI, false);
+    // ctx.fill();
+
+    // distance = distance + speed;
+
+    var img = new Image();
+    //引入图片地址
+    img.src = "https://upload-images.jianshu.io/upload_images/4041074-9a28413f8e1eac24.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp"
+    img.onload = function () {
+        var canvas = document.getElementById('mycanvas');
+        //返回一个用于在画布上绘图的环境,当前唯一的合法值是2d，二维绘图
+        var context = canvas.getContext("2d");
+        /**画布上绘制图像、画布或视频，
+         * 参数——img：规定要使用的图像、画布或视频
+         * sx：可选。开始剪切的 x 坐标位置
+         * sy：可选。开始剪切的 y 坐标位置
+         swidth：可选。被剪切图像的宽度。
+         sheight：可选。被剪切图像的高度。
+         x：在画布上放置图像的 x 坐标位置。
+         y：在画布上放置图像的 y 坐标位置。
+         width：可选。要使用的图像的宽度（伸展或缩小图像）。
+         height：可选。要使用的图像的高度（伸展或缩小图像）。**/
+        context.drawImage(img, 0, 0);
+        context.draggable = true
+        // context.gloabAlpah = 0.5
+        context.font = "20px microsoft yahei";
+        context.fillStyle = "#ffffff";
+        context.fillText("biubiu", 50, 50);
+    }
+  }
+</script>
+</html>
