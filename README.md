@@ -1,14 +1,14 @@
-### Canvas API
-##1. 基本用法
+# Canvas API
+## 基本用法
   <canvas id="tutorial" width="150" height="150"></canvas>
   var canvas = document.getElementById('tutorial');
   var ctx = canvas.getContext('2d');
-##2. 绘制形状
-  # 绘制矩形
+## 绘制形状
+  ### 绘制矩形
   绘制一个填充的矩形: fillRect(x, y, width, height)
   绘制一个矩形的边框: strokeRect(x, y, width, height)
   清除指定矩形区域，让清除部分完全透明: clearRect(x, y, width, height)
-  # 绘制路径
+  ### 绘制路径
   1. 首先，你需要创建路径起始点。
   2. 然后你使用画图命令去画出路径。
   3. 之后你把路径封闭。
@@ -22,19 +22,19 @@
     ·通过线条来绘制图形轮廓。
     fill()
     ·通过填充路径的内容区域生成实心的图形。
-  # 圆弧
+  ### 圆弧
   arc(x, y, radius, startAngle, endAngle, anticlockwise)
   ·画一个以（x,y）为圆心的以radius为半径的圆弧（圆），从startAngle开始到endAngle结束，按照anticlockwise给定的方向（默认为顺时针）来生成。
-  # 二次贝塞尔曲线及三次贝塞尔曲线
+  ### 二次贝塞尔曲线及三次贝塞尔曲线
   quadraticCurveTo(cp1x, cp1y, x, y)
   ·绘制二次贝塞尔曲线，cp1x,cp1y为一个控制点，x,y为结束点。
   bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
   ·绘制三次贝塞尔曲线，cp1x,cp1y为控制点一，cp2x,cp2y为控制点二，x,y为结束点。
-  # Path2D 对象
+  ### Path2D 对象
     new Path2D();     // 空的Path对象
     new Path2D(path); // 克隆Path对象
     new Path2D(d);    // 从SVG建立Path对象
-##3. 添加样式和颜色
+## 添加样式和颜色
   fillStyle = color
   设置图形的填充颜色。
   strokeStyle = color
@@ -80,7 +80,7 @@
     "evenodd":  even-odd winding rule.
     eg.
       ctx.fill("evenodd");
-##4. 绘制文本
+## 绘制文本
   fillText(text, x, y [, maxWidth])
   ·在指定的(x,y)位置填充指定的文本，绘制的最大宽度是可选的.
   strokeText(text, x, y [, maxWidth])
@@ -97,7 +97,7 @@
   --预测量文本宽度
     measureText()
     ·将返回一个 TextMetrics对象的宽度、所在像素，这些体现文本特性的属性。
-##5. 使用图片
+## 使用图片
   --引入图像到canvas里需要以下两步基本操作：
     获得一个指向HTMLImageElement的对象或者另一个canvas元素的引用作为源，也可以通过提供一个URL的方式来使用图片（参见例子）
     使用drawImage()函数将图片绘制到画布上
@@ -127,7 +127,7 @@
   --控制图像的缩放行为 Controlling image scaling behavior
     ·Gecko 1.9.2 引入了 mozImageSmoothingEnabled 属性，值为 false 时，图像不会平滑地缩放。默认是 true 。
   
-##6. 变形（Transformations）
+## 变形（Transformations）
   --状态的保存和恢复 Saving and restoring state
     save()
     ·保存画布(canvas)的所有状态
@@ -145,12 +145,12 @@
   --变形 Transforms
     transform(m11, m12, m21, m22, dx, dy)
   --resetTransform()
-##7. 合成与剪裁
+## 合成与剪裁
   --globalCompositeOperation
   --clip()
     ·将当前正在构建的路径转换为当前的裁剪路径。
-##8. 动画
-  #1. 基本动画
+## 动画
+  ### 基本动画
   --动画的基本步骤
     1.清空 canvas
       ·除非接下来要画的内容会完全充满 canvas （例如背景图），否则你需要清空所有。最简单的做法就是用 clearRect 方法。
@@ -172,8 +172,8 @@
  
     -requestAnimationFrame(callback)
     ·告诉浏览器你希望执行一个动画，并在重绘之前，请求浏览器执行一个特定的函数来更新动画。
-  #2. 高级动画
-##9. 像素操作
+  ### 高级动画
+## 像素操作
   --ImageData 对象
     -创建一个ImageData对象
       var myImageData = ctx.createImageData(width, height);
@@ -191,7 +191,7 @@
     ·创建一个JPG图片。你可以有选择地提供从0到1的品质量，1表示最好品质，0基本不被辨析但有比较小的文件大小。
     canvas.toBlob(callback, type, encoderOptions)
     ·这个创建了一个在画布中的代表图片的Blob对像。
-##10. 点击区域和无障碍访问
+## 点击区域和无障碍访问
   --点击区域（hit region）
     CanvasRenderingContext2D.addHitRegion() 
     ·在canvas上添加一个点击区域。
@@ -205,7 +205,7 @@
     ·如果给定的元素获得了焦点，这个方法会沿着在当前的路径画个焦点圈。
     CanvasRenderingContext2D.scrollPathIntoView() 
     ·把当前的路径或者一个给定的路径滚动到显示区域内。
-##11. canvas的优化
+## canvas的优化
   1. 在离屏canvas上预渲染相似的图形或重复的对象
   2. 避免浮点数的坐标点，用整数取而代之
   3. 不要在用drawImage时缩放图像
